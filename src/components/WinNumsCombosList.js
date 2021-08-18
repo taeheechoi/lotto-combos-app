@@ -33,7 +33,7 @@ const WinNumsCombosList = (state) => {
                             <Table.Row>
                                 <Table.HeaderCell textAlign="center" >Combinations (*mega ball)</Table.HeaderCell>
                                 <Table.HeaderCell textAlign="center" >Occurrences / {data.results[0]?.number_of_draws} plays</Table.HeaderCell>
-                                <Table.HeaderCell textAlign="center" >%</Table.HeaderCell>
+                                <Table.HeaderCell textAlign="center" >Possibility %</Table.HeaderCell>
                                 
                             </Table.Row>
                         </Table.Header>

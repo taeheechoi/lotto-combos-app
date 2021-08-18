@@ -6,7 +6,7 @@ const Footer = () => {
         <Grid divided='vertically' style={{ marginTop: 5 }}>
             <Grid.Row columns={2}>
                 <Grid.Column textAlign="right" verticalAlign="middle">
-                    Lotto Combo © {new Date().getFullYear()}
+                    Lotto Combos © {new Date().getFullYear()}
                 </Grid.Column>
                 <Grid.Column>
                     <Icon size="big" name="user circle"></Icon>

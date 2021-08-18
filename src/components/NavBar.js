@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Divider, Form, Menu } from 'semantic-ui-react'
+import { Button, Form, Menu } from 'semantic-ui-react'
 import { Context } from '../contexts/Provider'
 import { CLEAR_SEARCH } from '../contexts/winnumscombo/winNumsCombosActions'
 import getWinNumsCombos from '../services/getWinNumsCombos'

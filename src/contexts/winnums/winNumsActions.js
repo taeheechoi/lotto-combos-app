@@ -1,0 +1,4 @@
+export const GET_WIN_NUMS_LOADING = 'GET_WIN_NUMS_LOADING'
+export const GET_WIN_NUMS_SUCCESS = 'GET_WIN_NUMS_SUCCESS'
+export const GET_WIN_NUMS_ERROR = 'GET_WIN_NUMS_ERROR'
+export const CONNECTION_ERROR = "Could not connect";

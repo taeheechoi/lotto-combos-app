@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-react'
+import { localDateTime } from '../utils/appUtils'
 
 const WinNumsList = (state) => {
     const { loading, data, gameName } = state
@@ -12,7 +13,7 @@ const WinNumsList = (state) => {
                         <Placeholder>
                             <Placeholder.Header image>
                                 <Placeholder.Line />
-                                <Placeholder.Line />re
+                                <Placeholder.Line />
                             </Placeholder.Header>
                             <Placeholder.Paragraph>
                                 <Placeholder.Line />
@@ -41,10 +42,10 @@ const WinNumsList = (state) => {
                             {data && data.results?.map((nums) => (
                                 <Table.Row key={nums.draw_date}>
 
-                                    <Table.Cell textAlign="center" >{nums.draw_date.split('T')[0]}</Table.Cell>
+                                    <Table.Cell textAlign="center" >{localDateTime(nums.draw_date)}</Table.Cell>
                                     <Table.Cell textAlign="center" >{nums.winning_numbers}</Table.Cell>
                                     <Table.Cell textAlign="center" >{nums.mega_ball}</Table.Cell>
-                                    <Table.Cell textAlign="center" >{nums.multiplier}</Table.Cell>
+                                    <Table.Cell textAlign="center" >{nums.multiplier.replace(/^0+/,'')} x</Table.Cell>
                                 </Table.Row>
                             ))
                             }

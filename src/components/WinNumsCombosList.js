@@ -3,6 +3,7 @@ import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-reac
 
 const WinNumsCombosList = (state) => {
     const { loading, data, gameName } = state
+    console.log("gamName", gameName)
     
     return (
         <div>
@@ -30,7 +31,7 @@ const WinNumsCombosList = (state) => {
                     <Table celled>
                         <Table.Header>
                             <Table.Row>
-                                <Table.HeaderCell textAlign="center" >Combinations</Table.HeaderCell>
+                                <Table.HeaderCell textAlign="center" >Combinations (*mega ball)</Table.HeaderCell>
                                 <Table.HeaderCell textAlign="center" >Occurrences / {data.results[0]?.number_of_draws} plays</Table.HeaderCell>
                                 <Table.HeaderCell textAlign="center" >%</Table.HeaderCell>
                                 

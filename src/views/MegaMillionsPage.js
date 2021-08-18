@@ -25,7 +25,7 @@ const MegaMillionsPage = () => {
 
             <NavBar />
             <Container>
-                {winNumsCombosData.length === 0 ? <WinNumsList {...winNumsState} gameName={gameName} /> : <WinNumsCombosList {...winNumsCombosState} {...gameName} />}
+                {winNumsCombosData.length === 0 ? <WinNumsList {...winNumsState} gameName={gameName} /> : <WinNumsCombosList {...winNumsCombosState} gameName={gameName} />}
 
             </Container>
             <Footer/>

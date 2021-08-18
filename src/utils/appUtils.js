@@ -3,3 +3,5 @@ export const cleanedSearchNumbers = (search) => {
     return search.replace(regex, ', ')
     
 }
+
+export const localDateTime = (date) => new Date(date).toLocaleDateString();

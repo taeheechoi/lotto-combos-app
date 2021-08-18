@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Form, Menu } from 'semantic-ui-react'
+import { Button, Divider, Form, Menu } from 'semantic-ui-react'
 import { Context } from '../contexts/Provider'
 import { CLEAR_SEARCH } from '../contexts/winnumscombo/winNumsCombosActions'
 import getWinNumsCombos from '../services/getWinNumsCombos'
@@ -32,30 +32,25 @@ const NavBar = () => {
     }, [search])
 
     return (
-        <div>
-            <Menu secondary pointing style={{ marginBottom: 20 }}>
-                <Menu.Item as={Link} to="/" style={{ fontSize: 30 }} position="left">
-                    Lotto Combos
-                </Menu.Item>
-                <Menu.Item>
-                    <Form>
-                        <Form.Group>
-                            <Form.Input style={{ width: 350 }} name="combos Search" placeholder="Enter numbers to search. 10 20" onChange={onFieldChange} />
-                            <Button type="submit" primary onClick={onFormSubmit}>Search</Button>
-                        </Form.Group>
-                    </Form>
-                </Menu.Item>
-                <Menu.Item position="right" >
-                    How to Play
-                </Menu.Item>
+        
+        <Menu secondary pointing style={{ marginBottom: 20 }}>
+            <Menu.Item as={Link} to="/" style={{ fontSize: 30 }} position="left">
+                Lotto Combos
+            </Menu.Item>
+            <Menu.Item>
+                <Form>
+                    <Form.Group>
+                        <Form.Input style={{ width: 350 }} name="combos Search" placeholder="Enter numbers to search. 10 20" onChange={onFieldChange} />
+                        <Button type="submit" primary onClick={onFormSubmit}>Search</Button>
+                    </Form.Group>
+                </Form>
+            </Menu.Item>
+            <Menu.Item position="right" >
+                How to search
+            </Menu.Item>
+        </Menu>
 
 
-
-
-            </Menu>
-
-
-        </div>
     )
 }
 

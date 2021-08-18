@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar'
 import WinNumsList from '../components/WinNumsList'
 import WinNumsCombosList from '../components/WinNumsCombosList'
 import { Container, Header } from 'semantic-ui-react'
+import Footer from '../components/Footer'
 
 const MegaMillionsPage = () => {
     const { winNumsState, winNumsDispatch, winNumsCombosState } = useContext(Context)
@@ -27,6 +28,7 @@ const MegaMillionsPage = () => {
                 {winNumsCombosData.length === 0 ? <WinNumsList {...winNumsState} gameName={gameName} /> : <WinNumsCombosList {...winNumsCombosState} {...gameName} />}
 
             </Container>
+            <Footer/>
 
         </div>
     )

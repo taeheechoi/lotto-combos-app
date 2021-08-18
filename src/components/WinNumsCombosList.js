@@ -2,12 +2,12 @@ import React from 'react'
 import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-react'
 
 const WinNumsCombosList = (state) => {
-    const { loading, data } = state
+    const { loading, data, gameName } = state
     
     return (
         <div>
             <Container>
-                <Header>Winning Numbers Combinations</Header>
+                <Header>{gameName} - Winning Numbers Combinations</Header>
                 {loading && (
                     <div>
                         <Placeholder>

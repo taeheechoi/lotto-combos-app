@@ -22,6 +22,9 @@ const NavBar = () => {
         getWinNumsCombos(searchNumbers)(winNumsCombosDispatch)
     }
 
+    const searchNumbersValid = !search?.length
+    console.log('searchNumbersValid', searchNumbersValid)
+
     useEffect(() => {
 
         if (!search) {
@@ -41,7 +44,7 @@ const NavBar = () => {
                 <Form>
                     <Form.Group>
                         <Form.Input style={{ width: 350 }} name="combos Search" placeholder="Enter numbers to search. 10 20" onChange={onFieldChange} />
-                        <Button type="submit" primary onClick={onFormSubmit}>Search</Button>
+                        <Button type="submit" primary onClick={onFormSubmit} disabled={searchNumbersValid}>Search</Button>
                     </Form.Group>
                 </Form>
             </Menu.Item>

@@ -1,0 +1,7 @@
+https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_Flexbox_layouts
+
+
+https://www.codegrepper.com/code-examples/css/make+footer+stick+to+bottom+without+overlap+over+other+elements
+
+
+https://react.semantic-ui.com/elements/container/#types-text

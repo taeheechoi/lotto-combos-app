@@ -7,9 +7,7 @@ const RenderRoute = (route) => {
     document.tile = title || 'Lotto Combo Search'
 
     return (
-        <div>
-            <Route path={path} exact component={component} />
-        </div>
+        <Route path={path} exact component={component} />
     )
 }
 

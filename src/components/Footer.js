@@ -3,7 +3,7 @@ import { Grid, Icon } from 'semantic-ui-react'
 
 const Footer = () => {
     return (
-        <Grid divided='vertically' style={{ marginTop: 5 }}>
+        <Grid divided='vertically'>
             <Grid.Row columns={2}>
                 <Grid.Column textAlign="right" verticalAlign="middle">
                     Lotto Combos © {new Date().getFullYear()}
@@ -14,6 +14,7 @@ const Footer = () => {
                 </Grid.Column>
             </Grid.Row>
         </Grid>
+
 
 
     )

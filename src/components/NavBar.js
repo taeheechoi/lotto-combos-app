@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { findByLabelText } from '@testing-library/react'
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Button, Form, Menu } from 'semantic-ui-react'
 import { Context } from '../contexts/Provider'
 import { CLEAR_SEARCH } from '../contexts/winnumscombo/winNumsCombosActions'
@@ -12,6 +12,8 @@ const NavBar = () => {
     const { winNumsCombosDispatch } = useContext(Context)
 
     const [search, setSearch] = useState('')
+    const [activeItem, setActiveItem] = useState({})
+
 
     const onFieldChange = (e, { value }) => {
         setSearch(value)
@@ -23,15 +25,16 @@ const NavBar = () => {
         getWinNumsCombos(searchNumbers)(winNumsCombosDispatch)
     }
 
-    const onMenuClick = () => {
-        
+    const onMenuClick = (e, { name }) => {
+
+        setActiveItem({ activeItem: name })
         winNumsCombosDispatch({
             type: CLEAR_SEARCH
         })
         setSearch('')
 
-    }
 
+    }
 
     const searchNumbersValid = !search?.length
     useEffect(() => {
@@ -44,27 +47,27 @@ const NavBar = () => {
 
     return (
         <Menu secondary pointing>
-            <Menu.Item header as={Link} to="/" style={{ fontSize: 30 }} >
+            <Menu.Item header style={{ fontSize: 30 }}>
                 Lotto Combos
             </Menu.Item>
-            <Menu.Item/>
-            <Menu.Item position="left"/>
+            <Menu.Item />
+            <Menu.Item position="left" />
             <Menu.Item id="comboSearch" name='combosSearch'>
                 <Form>
                     <Form.Group>
-                        <Form.Input style={{ width: 350 }} placeholder="Enter numbers to search. 10 20" onChange={onFieldChange} />
+                        <Form.Input style={{ width: 350 }} placeholder="Enter numbers to search combinations. 10 20" onChange={onFieldChange} />
                         <Button type="submit" primary onClick={onFormSubmit} disabled={searchNumbersValid}>Search</Button>
                     </Form.Group>
                 </Form>
             </Menu.Item>
-            <Menu.Item as={Link} to="/" name='winningNumbers' position="right" onClick={onMenuClick}>
+            <Menu.Item as={NavLink} to="/winning-numbers" position="right">
                 Winning Numbers
             </Menu.Item>
-            <Menu.Item as={Link} to="top-occurrence" name='top-occurrence' onClick={onMenuClick}>
-                {/* <Menu.Item name='topOccurrence' as={Link} to="top-occurrence"  active={activeItem === 'topOccurrence'} onClick={onMenuClick} > */}
+            <Menu.Item as={NavLink} to="/top-occurrence" >
                 Top Occurrence
             </Menu.Item>
-            <Menu.Item as={Link} to="about" name='about' onClick={onMenuClick}>
+            <Menu.Item as={NavLink} to="/about">
+
                 About
             </Menu.Item>
         </Menu>

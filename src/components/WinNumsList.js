@@ -1,12 +1,14 @@
 import React from 'react'
 import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-react'
+
 import { localDateTime } from '../utils/appUtils'
 
 const WinNumsList = (state) => {
-    const { loading, data, title } = state
+    const { loading, data } = state
+
     return (
         <Container style={{marginBottom: 10}}>
-            <Header >{title}</Header>
+            <Header >Winning Numbers </Header>
             {loading && (
 
                 <Placeholder>
@@ -24,7 +26,7 @@ const WinNumsList = (state) => {
 
             )}
 
-            {!loading && data.count > 0 ? (
+            {!loading && data && data.count > 0 ? (
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
@@ -41,7 +43,7 @@ const WinNumsList = (state) => {
 
                                 <Table.Cell textAlign="center" >{localDateTime(nums.draw_date)}</Table.Cell>
                                 <Table.Cell textAlign="center" >{nums.winning_numbers}</Table.Cell>
-                                <Table.Cell textAlign="center" >{nums.mega_ball}</Table.Cell>
+                                <Table.Cell textAlign="center" >{nums.ball}</Table.Cell>
                                 <Table.Cell textAlign="center" >{nums.multiplier.replace(/^0+/, '')} x</Table.Cell>
                             </Table.Row>
                         ))

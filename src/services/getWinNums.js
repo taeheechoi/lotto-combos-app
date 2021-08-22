@@ -1,13 +1,13 @@
 import { CONNECTION_ERROR, GET_WIN_NUMS_ERROR, GET_WIN_NUMS_LOADING, GET_WIN_NUMS_SUCCESS } from '../contexts/winnums/winNumsActions'
 import axiosHelper from '../utils/axiosHelper'
 
-const getWinNums = (dispatch) => {
+const getWinNums = (game) => (dispatch) => {
     dispatch({
         type: GET_WIN_NUMS_LOADING
     })
 
     axiosHelper()
-    .get('/mega-millions/')
+    .get(`/lottery/${game}/`)
     .then((res) => {
         dispatch({
             type: GET_WIN_NUMS_SUCCESS,

@@ -1,19 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { findByLabelText } from '@testing-library/react'
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Form, Menu } from 'semantic-ui-react'
+import { Button, Dropdown, Form, Menu } from 'semantic-ui-react'
 import { Context } from '../contexts/Provider'
 import { CLEAR_SEARCH } from '../contexts/winnumscombo/winNumsCombosActions'
 import getWinNumsCombos from '../services/getWinNumsCombos'
 import { cleanedSearchNumbers } from '../utils/appUtils'
 
 const NavBar = () => {
-    const { winNumsCombosDispatch } = useContext(Context)
+    const { winNumsCombosDispatch, game, setGame} = useContext(Context)
 
     const [search, setSearch] = useState('')
-    const [activeItem, setActiveItem] = useState({})
 
+    const gameOptions = [
+        {key: 'megamillions', text: 'Mega Millions', value:'megamillions'},
+        {key: 'powerball', text: 'Powerball', value:'powerball'},
+    ]
 
     const onFieldChange = (e, { value }) => {
         setSearch(value)
@@ -21,21 +23,13 @@ const NavBar = () => {
 
     const onFormSubmit = () => {
         const searchNumbers = cleanedSearchNumbers(search)
-        console.log('searchNumbers', searchNumbers)
-        getWinNumsCombos(searchNumbers)(winNumsCombosDispatch)
+        getWinNumsCombos(game, searchNumbers)(winNumsCombosDispatch)
     }
 
-    const onMenuClick = (e, { name }) => {
-
-        setActiveItem({ activeItem: name })
-        winNumsCombosDispatch({
-            type: CLEAR_SEARCH
-        })
-        setSearch('')
-
-
+    const onGameChange =(e, {value:game}) => {
+        setGame(game)
     }
-
+ 
     const searchNumbersValid = !search?.length
     useEffect(() => {
         if (!search) {
@@ -55,6 +49,7 @@ const NavBar = () => {
             <Menu.Item id="comboSearch" name='combosSearch'>
                 <Form>
                     <Form.Group>
+                        <Dropdown options={gameOptions} defaultValue={game} simple item onChange={onGameChange}/>
                         <Form.Input style={{ width: 350 }} placeholder="Enter numbers to search combinations. 10 20" onChange={onFieldChange} />
                         <Button type="submit" primary onClick={onFormSubmit} disabled={searchNumbersValid}>Search</Button>
                     </Form.Group>

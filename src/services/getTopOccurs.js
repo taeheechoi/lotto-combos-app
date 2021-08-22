@@ -3,13 +3,13 @@ import { GET_TOP_OCCURS_ERROR, GET_TOP_OCCURS_LOADING, GET_TOP_OCCURS_SUCCESS } 
 import { CONNECTION_ERROR} from '../contexts/winnums/winNumsActions'
 import axiosHelper from '../utils/axiosHelper'
 
-const getTopOccurs = (dispatch) => {
+const getTopOccurs = (game) => (dispatch) => {
     dispatch({
         type: GET_TOP_OCCURS_LOADING
     })
   
     axiosHelper()
-    .get('/mega-millions/winning-numbers-combinations/?top-occurrence=True')
+    .get(`/lottery/winning-numbers-combinations/?game=${game}&top-occurrence=True`)
     .then((res) => {
         dispatch({
             type: GET_TOP_OCCURS_SUCCESS,

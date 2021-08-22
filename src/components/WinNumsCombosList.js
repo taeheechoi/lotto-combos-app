@@ -1,12 +1,13 @@
 import React from 'react'
 import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-react'
 
-const WinNumsCombosList = (state) => {
-    const { loading, data, title } = state
 
+const WinNumsCombosList = (state) => {
+    const { loading, data } = state
+   
     return (
         <Container style={{marginBottom: 10}}>
-            <Header>{title}</Header>
+            <Header>Winning Numbers Combinations</Header>
             {loading && (
                 <Placeholder>
                     <Placeholder.Header image>
@@ -21,11 +22,11 @@ const WinNumsCombosList = (state) => {
                     </Placeholder.Paragraph>
                 </Placeholder>
             )}
-            {!loading && data.count > 0 ? (
+            {!loading && data && data.count > 0 ? (
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell textAlign="center" >Combinations (*mega ball)</Table.HeaderCell>
+                            <Table.HeaderCell textAlign="center" >Combinations (*ball)</Table.HeaderCell>
                             <Table.HeaderCell textAlign="center" >Occurrences / {data.results[0].number_of_draws} plays</Table.HeaderCell>
                             <Table.HeaderCell textAlign="center" >Possibility %</Table.HeaderCell>
 

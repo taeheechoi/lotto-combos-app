@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const axiosHelper = () => {
     const baseURL = process.env.REACT_APP_BACKEND_URL;
-    const headers = {}
+    const headers = {}   
 
     const axiosHelper = axios.create({
         baseURL,
@@ -10,14 +10,14 @@ const axiosHelper = () => {
     })
 
     axiosHelper.interceptors.response.use(
-    (res) => new Promise((resolve) => {
-        resolve(res)
-    }),
-    (err) => {
-        return new Promise((reject) => {
-            reject(err);
-          });
-    }
+        (res) => new Promise((resolve) => {
+            resolve(res)
+        }),
+        (err) => {
+            return new Promise((reject) => {
+                reject(err);
+            });
+        }
     )
     return axiosHelper
 }

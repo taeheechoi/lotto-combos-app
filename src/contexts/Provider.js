@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useState } from 'react'
 import topOccursInitialState from './topoccurrence/topOccursInitialState'
 import topOccursReducer from './topoccurrence/topOccursReducer'
 import winNumsInitialState from './winnums/winNumsInitialState'
@@ -12,6 +12,7 @@ export const Provider = ({children}) => {
     const [winNumsState, winNumsDispatch] = useReducer(winNumsReducer,winNumsInitialState)
     const [winNumsCombosState, winNumsCombosDispatch] = useReducer(winNumsCombosReducer,winNumsCombosInitialState)
     const [topOccursState, topOccursDispatch] = useReducer(topOccursReducer,topOccursInitialState)
+    const [game, setGame] = useState('megamillions')
     
     return (
        <Context.Provider
@@ -21,7 +22,9 @@ export const Provider = ({children}) => {
             winNumsCombosState,
             winNumsCombosDispatch,
             topOccursState,
-            topOccursDispatch
+            topOccursDispatch,
+            game,
+            setGame
             
         }}
        >

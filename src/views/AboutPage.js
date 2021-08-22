@@ -1,18 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container, Header } from 'semantic-ui-react'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import WinNumsCombosList from '../components/WinNumsCombosList'
 import { Context } from '../contexts/Provider'
+import getTopOccurs from '../services/getTopOccurs'
 
 const AboutPage = () => {
-    const { winNumsCombosState } = useContext(Context)
+    const { winNumsCombosState, topOccursDispatch, game } = useContext(Context)
     const { data: winNumsCombosData } = winNumsCombosState
     const titleWinNumsCombos = "Mega Millions - Winning Numbers Combinations"
+    
+    useEffect(() => {
+        getTopOccurs(game)(topOccursDispatch) 
+    }, [game]);
+
     return (
         <>
             <NavBar />
-            {winNumsCombosData.count > 0 ? 
+            {winNumsCombosData && winNumsCombosData.count > 0 ? 
                 <WinNumsCombosList {...winNumsCombosState} title={titleWinNumsCombos} /> :
                 <Container text textAlign='justified'>
                     <Header>About Lotto Combos</Header>

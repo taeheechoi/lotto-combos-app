@@ -13,7 +13,7 @@ export const Provider = ({children}) => {
     const [winNumsCombosState, winNumsCombosDispatch] = useReducer(winNumsCombosReducer,winNumsCombosInitialState)
     const [topOccursState, topOccursDispatch] = useReducer(topOccursReducer,topOccursInitialState)
     const [game, setGame] = useState('megamillions')
-    const [search, setSearch] = useState(false)
+    const [search, setSearch] = useState('')
     
     return (
        <Context.Provider

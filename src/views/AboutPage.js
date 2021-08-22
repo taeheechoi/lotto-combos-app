@@ -7,19 +7,18 @@ import { Context } from '../contexts/Provider'
 import getTopOccurs from '../services/getTopOccurs'
 
 const AboutPage = () => {
-    const { winNumsCombosState, topOccursDispatch, game } = useContext(Context)
-    const { data: winNumsCombosData } = winNumsCombosState
-    const titleWinNumsCombos = "Mega Millions - Winning Numbers Combinations"
+    const { winNumsCombosState, topOccursDispatch, game, search } = useContext(Context)
+    const searchNumbersValid = !!search
     
     useEffect(() => {
         getTopOccurs(game)(topOccursDispatch) 
-    }, [game]);
+    }, [game, topOccursDispatch]);
 
     return (
         <>
             <NavBar />
-            {winNumsCombosData && winNumsCombosData.count > 0 ? 
-                <WinNumsCombosList {...winNumsCombosState} title={titleWinNumsCombos} /> :
+            {searchNumbersValid ? 
+                <WinNumsCombosList {...winNumsCombosState} /> :
                 <Container text textAlign='justified'>
                     <Header>About Lotto Combos</Header>
                     <p>

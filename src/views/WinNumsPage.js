@@ -8,8 +8,9 @@ import Footer from '../components/Footer'
 import WinNumsCombosList from '../components/WinNumsCombosList'
 
 const WinNumsPage = () => {
-    const { winNumsState, winNumsDispatch, winNumsCombosState, game } = useContext(Context)
-    const { data: winNumsCombosData } = winNumsCombosState
+    const { winNumsState, winNumsDispatch, winNumsCombosState, game, search } = useContext(Context)
+
+    const searchNumbersValid = !!search
 
     useEffect(() => {
         getWinNums(game)(winNumsDispatch);
@@ -18,7 +19,7 @@ const WinNumsPage = () => {
     return (
         <>
             <NavBar />
-            {winNumsCombosData && winNumsCombosData.count > 0 ? <WinNumsCombosList {...winNumsCombosState} /> : <WinNumsList {...winNumsState} />}
+            {searchNumbersValid ? <WinNumsCombosList {...winNumsCombosState} /> : <WinNumsList {...winNumsState} />}
             <div id="footer">
                 <Footer />
             </div>

@@ -4,9 +4,9 @@ import { Container, Header, Message, Placeholder, Table } from 'semantic-ui-reac
 
 const WinNumsCombosList = (state) => {
     const { loading, data } = state
-   
+
     return (
-        <Container style={{marginBottom: 10}}>
+        <Container style={{ marginBottom: 10 }}>
             <Header>Winning Numbers Combinations</Header>
             {loading && (
                 <Placeholder>
@@ -22,7 +22,7 @@ const WinNumsCombosList = (state) => {
                     </Placeholder.Paragraph>
                 </Placeholder>
             )}
-            {!loading && data && data.count > 0 ? (
+            {!loading && data && data.count > 0 && (
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
@@ -44,9 +44,8 @@ const WinNumsCombosList = (state) => {
                         }
                     </Table.Body>
                 </Table>
-            ) : (
-                <Message content="No combinations." />
             )}
+            {!loading && data && data.count === 0 && <Message content="No combinations." />}
         </Container>
     )
 }

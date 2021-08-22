@@ -26,7 +26,7 @@ const WinNumsList = (state) => {
 
             )}
 
-            {!loading && data && data.count > 0 ? (
+            {!loading && data && data.count > 0 && (
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
@@ -49,9 +49,8 @@ const WinNumsList = (state) => {
                         ))
                         }
                     </Table.Body>
-                </Table>) : (
-                <Message content="No winning numbers" />
-            )}
+                </Table>) }
+            {!loading && data && data.count === 0 &&  <Message content="No winning numbers" />}
        </Container>
     )
 }

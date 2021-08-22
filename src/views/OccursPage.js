@@ -8,8 +8,9 @@ import Footer from '../components/Footer'
 
 
 const OccursPage = () => {
-    const { topOccursState, topOccursDispatch, winNumsCombosState, game } = useContext(Context)
-    const { data: winNumsCombosData } = winNumsCombosState
+    const { topOccursState, topOccursDispatch, winNumsCombosState, game, search } = useContext(Context)
+ 
+    const searchNumbersValid = !!search
 
     useEffect(() => {
         getTopOccurs(game)(topOccursDispatch) 
@@ -18,7 +19,7 @@ const OccursPage = () => {
     return (
         <>
             <NavBar />
-            {winNumsCombosData && winNumsCombosData.count > 0 ? <WinNumsCombosList {...winNumsCombosState}  /> : <WinNumsCombosList {...topOccursState} />}
+            {searchNumbersValid ? <WinNumsCombosList {...winNumsCombosState}  /> : <WinNumsCombosList {...topOccursState} />}
             <div id="footer">
                 <Footer />
             </div>

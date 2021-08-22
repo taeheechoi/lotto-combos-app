@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Dropdown, Form, Menu } from 'semantic-ui-react'
 import { Context } from '../contexts/Provider'
@@ -8,10 +8,8 @@ import getWinNumsCombos from '../services/getWinNumsCombos'
 import { cleanedSearchNumbers } from '../utils/appUtils'
 
 const NavBar = () => {
-    const { winNumsCombosDispatch, game, setGame} = useContext(Context)
-
-    const [search, setSearch] = useState('')
-
+    const { winNumsCombosDispatch, game, setGame, search, setSearch} = useContext(Context)
+  
     const gameOptions = [
         {key: 'megamillions', text: 'Mega Millions', value:'megamillions'},
         {key: 'powerball', text: 'Powerball', value:'powerball'},
@@ -19,6 +17,7 @@ const NavBar = () => {
 
     const onFieldChange = (e, { value }) => {
         setSearch(value)
+        
     }
 
     const onFormSubmit = () => {
@@ -26,17 +25,20 @@ const NavBar = () => {
         getWinNumsCombos(game, searchNumbers)(winNumsCombosDispatch)
     }
 
-    const onGameChange =(e, {value:game}) => {
-        setGame(game)
+    const onGameChange =(e, {value}) => {
+        setGame(value)
+        setSearch('')
     }
  
     const searchNumbersValid = !search?.length
+
     useEffect(() => {
-        if (!search) {
+        if (!!search) {
             winNumsCombosDispatch({
                 type: CLEAR_SEARCH
             })
         }
+        
     }, [search])
 
     return (
@@ -50,7 +52,7 @@ const NavBar = () => {
                 <Form>
                     <Form.Group>
                         <Dropdown options={gameOptions} defaultValue={game} simple item onChange={onGameChange}/>
-                        <Form.Input style={{ width: 350 }} placeholder="Enter numbers to search combinations. 10 20" onChange={onFieldChange} />
+                        <Form.Input style={{ width: 350 }} placeholder="Enter numbers to search combinations. 10 20" onChange={onFieldChange} value={search}/>
                         <Button type="submit" primary onClick={onFormSubmit} disabled={searchNumbersValid}>Search</Button>
                     </Form.Group>
                 </Form>

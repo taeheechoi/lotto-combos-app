@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/lotto-combos-app/static/css/main.de7e4683.chunk.css",
+    "main.js": "/lotto-combos-app/static/js/main.f3dfaec1.chunk.js",
+    "main.js.map": "/lotto-combos-app/static/js/main.f3dfaec1.chunk.js.map",
+    "runtime-main.js": "/lotto-combos-app/static/js/runtime-main.973f0fe5.js",
+    "runtime-main.js.map": "/lotto-combos-app/static/js/runtime-main.973f0fe5.js.map",
+    "static/css/2.ecf5ff5e.chunk.css": "/lotto-combos-app/static/css/2.ecf5ff5e.chunk.css",
+    "static/js/2.56cbd234.chunk.js": "/lotto-combos-app/static/js/2.56cbd234.chunk.js",
+    "static/js/2.56cbd234.chunk.js.map": "/lotto-combos-app/static/js/2.56cbd234.chunk.js.map",
+    "index.html": "/lotto-combos-app/index.html",
+    "static/css/2.ecf5ff5e.chunk.css.map": "/lotto-combos-app/static/css/2.ecf5ff5e.chunk.css.map",
+    "static/css/main.de7e4683.chunk.css.map": "/lotto-combos-app/static/css/main.de7e4683.chunk.css.map",
+    "static/js/2.56cbd234.chunk.js.LICENSE.txt": "/lotto-combos-app/static/js/2.56cbd234.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/lotto-combos-app/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.973f0fe5.js",
+    "static/css/2.ecf5ff5e.chunk.css",
+    "static/js/2.56cbd234.chunk.js",
+    "static/css/main.de7e4683.chunk.css",
+    "static/js/main.f3dfaec1.chunk.js"
+  ]
+}

@@ -32,7 +32,7 @@ const WinNumsList = (state) => {
                         <Table.Row>
                             <Table.HeaderCell textAlign="center" >Draw Date</Table.HeaderCell>
                             <Table.HeaderCell textAlign="center" >Winning Numbers</Table.HeaderCell>
-                            <Table.HeaderCell textAlign="center" >Mega Number</Table.HeaderCell>
+                            <Table.HeaderCell textAlign="center" >*Ball</Table.HeaderCell>
                             <Table.HeaderCell textAlign="center" >Multiplier</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
